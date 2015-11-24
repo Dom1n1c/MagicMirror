@@ -9,34 +9,23 @@
 		var gitHash = '<?php echo trim(`git rev-parse HEAD`) ?>';
 	</script>
 	<meta name="google" value="notranslate" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
 
 	<div class="top left"><div class="date small dimmed"></div><div class="time"></div><div class="calendar xxsmall"></div></div>
 	<div class="top right"><div class="windsun small dimmed"></div><div class="temp"></div><div class="forecast small dimmed"></div></div>
-<<<<<<< HEAD
-	<div class="center-ver center-hor">
-                <div class="openhab light"></div>
-    	</div>
-=======
 	<div class="center-ver center-hor"><!-- <div class="dishwasher light">Vaatwasser is klaar!</div> --></div>
->>>>>>> refs/remotes/MichMich/master
 	<div class="lower-third center-hor"><div class="compliment light"></div></div>
-	<div class="bottom center-hor"><div class="newshead newsh medium"></div>
-	<div class="news medium newsd"></div></div>
+	<div class="bottom center-hor"><div class="news medium"></div></div>
 
 </div>
 
 <script src="js/jquery.js"></script>
 <script src="js/jquery.feedToJSON.js"></script>
 <script src="js/ical_parser.js"></script>
-<<<<<<< HEAD
 <script src="js/moment-with-locales.js"></script>
-=======
-<script src="js/moment-with-locales.min.js"></script>
-<script src="js/config.js"></script>
->>>>>>> refs/remotes/MichMich/master
+<script src="js/config.js?nocache=<?php echo md5(microtime()) ?>"></script>
 <script src="js/rrule.js"></script>
 <script src="js/version/version.js" type="text/javascript"></script>
 <script src="js/calendar/calendar.js" type="text/javascript"></script>

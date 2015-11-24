@@ -76,8 +76,7 @@ var dateutil = {
         var dateNoTime = new Date(
             date.getFullYear(), date.getMonth(), date.getDate());
         return Math.ceil(
-            (dateNoTime - new Date(date.getFullYear(), 0, 1))
-            / dateutil.ONE_DAY) + 1;
+            (dateNoTime - new Date(date.getFullYear(), 0, 1)) / dateutil.ONE_DAY) + 1;
     },
 
     isLeapYear: function(year) {
@@ -1323,8 +1322,7 @@ RRule.prototype = {
                 if (filtered) {
                     // Jump to one iteration before next day
                     second += Math.floor(
-                        (86399 - (hour * 3600 + minute * 60 + second))
-                        / interval) * interval;
+                        (86399 - (hour * 3600 + minute * 60 + second)) / interval) * interval;
                 }
                 while (true) {
                     second += interval;
@@ -1626,8 +1624,7 @@ Iterinfo.prototype.rebuild = function(year, month) {
                             52
                             + pymod(
                                 lyearlen + pymod(
-                                    lyearweekday - rr.options.wkst, 7), 7)
-                            / 4);
+                                    lyearweekday - rr.options.wkst, 7), 7) / 4);
                     } else {
                         lnumweeks = Math.floor(
                             52 + pymod(this.yearlen - no1wkst, 7) / 4);

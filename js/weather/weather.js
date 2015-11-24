@@ -95,7 +95,7 @@ weather.updateCurrentWeather = function () {
 				_newSunHtml = '<span class="wi wi-sunset xdimmed"></span> ' + _sunset;
 			}
 
-			$(this.windSunLocation).updateWithText(_newWindHtml + ' ' + _newSunHtml, this.fadeInterval);
+			$(this.windSunLocation).updateWithText(_newWindHtml + ' ' + _newSunHtml+ '  ' +weather.params.q, this.fadeInterval);
 
 		}.bind(this),
 		error: function () {
@@ -129,8 +129,8 @@ weather.updateWeatherForecast = function () {
 
 				_forecastHtml += '<td class="day">' + moment(_forecast.dt, 'X').format('ddd') + '</td>';
 				_forecastHtml += '<td class="icon-small ' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
-				_forecastHtml += '<td class="temp-max">' + this.roundValue(_forecast.temp.max) + '</td>';
 				_forecastHtml += '<td class="temp-min">' + this.roundValue(_forecast.temp.min) + '</td>';
+				_forecastHtml += '<td class="temp-max">' + this.roundValue(_forecast.temp.max) + '</td>';
 
 				_forecastHtml += '</tr>';
 

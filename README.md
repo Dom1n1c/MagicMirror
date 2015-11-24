@@ -1,8 +1,12 @@
-Smartmirror
+MagicMirror
 ===========
 
-![Screenshot](https://cloud.githubusercontent.com/assets/8407566/9839264/4fbd2f7c-5a74-11e5-8d79-078886477cd6.png)
-=======
+##Introduction
+
+The super magic interface of my personal Magic Mirror. More information about this project can be found on my [blog](http://michaelteeuw.nl/tagged/magicmirror).
+
+Runs as a php script on a web server with basically no external dependencies. Can use socket.io for XBEE integration, but isn't required for basic functionality.
+
 
 ##Configuration
 
@@ -39,4 +43,5 @@ Checks the git version and refreshes if a new version has been pulled.
 ###[Weather](js/weather)
 
 Takes the user's inserted location, language, unit type, and OpenWeatherMap API key and grabs the five day weather forecast from OpenWeatherMap. You need to set the API key in the config for this to work. (See *configuration*.)
+
 

@@ -50,7 +50,7 @@ body, html {
 	top: 66.666%;
 	height: 200px;
 	margin-top: -100px;
-	line-height: 100px;
+	line-height: 100px;	
 }
 
 .center-hor
@@ -58,20 +58,13 @@ body, html {
 	position: absolute;
 	right: 50px;
 	left: 50px;
-	text-align: center;
-	font-size: 60px;
-}
-
-.bottomhead
-{
-	position: absolute;
-	bottom: 250px;
+	text-align: center;	
 }
 
 .bottom
 {
 	position: absolute;
-	bottom: 25px;
+	bottom: 50px;
 }
 
 .xxsmall
@@ -118,7 +111,7 @@ body, html {
 .xdimmed
 {
 	color: #666;
-}
+} 
 
 .dimmed
 {
@@ -130,7 +123,7 @@ body, html {
 	font-family: "HelveticaNeue-UltraLight";
 }
 
-.icon
+.icon 
 {
 	position: relative;
 	top :-10px;
@@ -165,13 +158,13 @@ body, html {
 	font-size: 20px;
 	line-height: 20px;
 }
-.forecast-table .day, .forecast-table .temp-min, .forecast-table .temp-max
+.forecast-table .day, .forecast-table .temp-min, .forecast-table .temp-max  
 {
 	width: 50px;
 	text-align: right;
 }
 
-.forecast-table .temp-max
+.forecast-table .temp-max 
 {
 	width: 60px;
 }
@@ -180,13 +173,6 @@ body, html {
 {
 	color: #999;
 }
-
-
-
-
-
-
-
 
 .calendar-table {
 	font-size: 14px;
@@ -208,18 +194,6 @@ body, html {
 	display: none;
 }
 
-.newsh{
-	font-size: 25px;
-	letter-spacing: -1px;
-	font-family: "HelveticaNeue-Light";
-}
-
-.newsd{
-	font-size: 20px;
-	letter-spacing: -1px;
-	font-family: "HelveticaNeue-Light";
-}
-
 @font-face {
   font-family: 'HelveticaNeue-UltraLight';
   src: url('font/HelveticaNeue-UltraLight.eot'); /* IE9 Compat Modes */
@@ -239,7 +213,7 @@ body, html {
   src: url('font/HelveticaNeue-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('font/HelveticaNeue-Medium.woff') format('woff'), /* Modern Browsers */
        url('font/HelveticaNeue-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('font/HelveticaNeue-Medium.svg#d7af0fd9278f330eed98b60dddea7bd6') format('svg'); /* Legacy iOS */
+       url('font/HelveticaNeue-Medium.svg#d7af0fd9278f330eed98b60dddea7bd6') format('svg'); /* Legacy iOS */ 
   font-style:   normal;
   font-weight:  400;
 }
@@ -250,7 +224,8 @@ body, html {
   src: url('font/HelveticaNeue-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('font/HelveticaNeue-Light.woff') format('woff'), /* Modern Browsers */
        url('font/HelveticaNeue-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('font/HelveticaNeue-Light.svg#7384ecabcada72f0e077cd45d8e1c705') format('svg'); /* Legacy iOS */
+       url('font/HelveticaNeue-Light.svg#7384ecabcada72f0e077cd45d8e1c705') format('svg'); /* Legacy iOS */      
   font-style:   normal;
   font-weight:  200;
 }
+
