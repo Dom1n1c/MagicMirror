@@ -35,18 +35,6 @@ function roundVal(temp)
 	return Math.round(temp * 10) / 10;
 }
 
-function kmh2beaufort(kmh)
-{
-	var speeds = [1, 5, 11, 19, 28, 38, 49, 61, 74, 88, 102, 117, 1000];
-	for (var beaufort in speeds) {
-		var speed = speeds[beaufort];
-		if (speed > kmh) {
-			return beaufort;
-		}
-	}
-	return 12;
-}
-
 jQuery(document).ready(function($) {
 	var iconTable = {
 			'01d':'wi-day-sunny',
@@ -69,14 +57,18 @@ jQuery(document).ready(function($) {
 			'50n':'wi-night-alt-cloudy-windy'
 		}
 
+<<<<<<< HEAD
 	var news = [];
 	var newshead = [];
 	var newsIndex = 0;
 
+=======
+>>>>>>> refs/remotes/MichMich/master
 	var eventList = [];
 	var events = [];
 	var lastCompliment;
 	var compliment;
+<<<<<<< HEAD
 	var lang;
 	var APPID = '0000'; 	//enter Your APIKEY
 	var mirroruser = $.urlParam('user');
@@ -315,14 +307,30 @@ jQuery(document).ready(function($) {
       if (hour >= 3 && hour < 12) compliments = morning;
       if (hour >= 12 && hour < 17) compliments = afternoon;
       if (hour >= 17 || hour < 3) compliments = evening;
+=======
 
-		compliment = Math.floor(Math.random()*compliments.length);
-		}
+    moment.locale(config.lang);
 
-		$('.compliment').updateWithText(compliments[compliment], 4000);
+	//connect do Xbee monitor
+	// var socket = io.connect('http://rpi-alarm.local:8082');
+	// socket.on('dishwasher', function (dishwasherReady) {
+	// 	if (dishwasherReady) {
+	// 		$('.dishwasher').fadeIn(2000);
+	// 		$('.lower-third').fadeOut(2000);
+	// 	} else {
+	// 		$('.dishwasher').fadeOut(2000);
+	// 		$('.lower-third').fadeIn(2000);
+	// 	}
+	// });
+>>>>>>> refs/remotes/MichMich/master
 
-		lastCompliment = compliment;
+	version.init();
 
+	time.init();
+
+	calendar.init();
+
+<<<<<<< HEAD
 		setTimeout(function() {
 			updateCompliment(true);
 		}, 30000);
@@ -460,6 +468,13 @@ jQuery(document).ready(function($) {
 
 
 	})();
+=======
+	compliments.init();
+
+	weather.init();
+
+	news.init();
+>>>>>>> refs/remotes/MichMich/master
 
 	(function updateOpenHAB()
         {
