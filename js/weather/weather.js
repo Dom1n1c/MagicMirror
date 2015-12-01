@@ -117,25 +117,23 @@ weather.updateWeatherForecast = function () {
 		success: function (data) {
 
 			var _opacity = 1,
-				_forecastHtml = '';
-
+			_forecastHtml = '';
 			_forecastHtml += '<table class="forecast-table">';
-
+			_forecastHtml += '<tr style="opacity:' + _opacity + '">';
+			_forecastHtml += '<td class="day">' + weather.params.datelabel[0] +  '</td>';
+			_forecastHtml += '<td class="icon-small ' + ' ' + '"></td>';
+			_forecastHtml += '<td class="temp-min">' + weather.params.datelabel[1] + '</td>';
+			_forecastHtml += '<td class="temp-max">' + weather.params.datelabel[2] + '</td>';
+			
 			for (var i = 0, count = data.list.length; i < count; i++) {
-
 				var _forecast = data.list[i];
-
 				_forecastHtml += '<tr style="opacity:' + _opacity + '">';
-
 				_forecastHtml += '<td class="day">' + moment(_forecast.dt, 'X').format('ddd') + '</td>';
 				_forecastHtml += '<td class="icon-small ' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
 				_forecastHtml += '<td class="temp-min">' + this.roundValue(_forecast.temp.min) + '</td>';
 				_forecastHtml += '<td class="temp-max">' + this.roundValue(_forecast.temp.max) + '</td>';
-
 				_forecastHtml += '</tr>';
-
 				_opacity -= 0.155;
-
 			}
 
 			_forecastHtml += '</table>';

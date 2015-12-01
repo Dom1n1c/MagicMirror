@@ -1,10 +1,9 @@
-MagicMirror
+Smartmirror
 ===========
 
 ##Introduction
 
-The super magic interface of my personal Magic Mirror. More information about this project can be found on my [blog](http://michaelteeuw.nl/tagged/magicmirror).
-
+Forked from MichMich
 Runs as a php script on a web server with basically no external dependencies. Can use socket.io for XBEE integration, but isn't required for basic functionality.
 
 
@@ -45,3 +44,7 @@ Checks the git version and refreshes if a new version has been pulled.
 Takes the user's inserted location, language, unit type, and OpenWeatherMap API key and grabs the five day weather forecast from OpenWeatherMap. You need to set the API key in the config for this to work. (See *configuration*.)
 
 
+
+To-Do:
+-Slice Calendar
+-Multiple Users

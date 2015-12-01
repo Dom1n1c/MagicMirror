@@ -25,27 +25,27 @@ function roundVal(temp)
 	return Math.round(temp * 10) / 10;
 }
 
+$.urlParam = function(name, url) {
+    if (!url) {
+     url = window.location.href;
+    }
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
+    if (!results) { 
+        return undefined;
+    }
+    return results[1] || undefined;
+}
+
 jQuery(document).ready(function($) {
-
+	var mirroruser = $.urlParam('user');
+	
+	 moment.locale(config.lang);
 	var eventList = [];
-
 	var lastCompliment;
 	var compliment;
-
-    moment.locale(config.lang);
 	
 
-	//connect do Xbee monitor
-	// var socket = io.connect('http://rpi-alarm.local:8082');
-	// socket.on('dishwasher', function (dishwasherReady) {
-	// 	if (dishwasherReady) {
-	// 		$('.dishwasher').fadeIn(2000);
-	// 		$('.lower-third').fadeOut(2000);
-	// 	} else {
-	// 		$('.dishwasher').fadeOut(2000);
-	// 		$('.lower-third').fadeIn(2000);
-	// 	}
-	// });
+
 
 	version.init();
 

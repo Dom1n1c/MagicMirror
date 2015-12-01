@@ -119,6 +119,8 @@ calendar.getCalendarData = function(url, color, callback) {
 		};
 
 		this.eventList = this.eventList.sort(function(a,b){return a.seconds-b.seconds});
+		//this.eventList = this.eventList.slice(0,8);
+		//slicen calendar.calendars[calIdx].slice
 
 		if (callback !== undefined && Object.prototype.toString.call(callback) === '[object Function]') {
 			callback();
@@ -132,7 +134,7 @@ calendar.updateCalendar = function (eventList) {
 
 	var table = $('<table/>').addClass('xsmall').addClass('calendar-table');
 	var opacity = 1;
-	var len = eventList.length > 20 ? 20 : eventList.length;
+	var len = eventList.length > calendar.calendarMaxItems ? calendar.calendarMaxItems : eventList.length;
 	for (var i = 0; i < len; i++) {
 		var e = eventList[i];
 
