@@ -37,12 +37,12 @@ calendar: {
             {
                 url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",
                 color: "#ffffff",
-		slice: "99"
+				slice: "99"
             },
 			{
                 url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",
                 color: "#3399ff",
-		slice: "99"
+				slice: "99"
             },
         ],
     },

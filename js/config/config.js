@@ -1,5 +1,5 @@
 var config = {
-    lastUpdate: '2015-12-07T18:25:53+00:00',
+    lastUpdate: '2015-12-07T23:17:44+00:00',
     lang: "de",
     time: {
         timeFormat: "24"
@@ -32,18 +32,18 @@ calendar: {
 	    interval: 1000,
 		fadeInterval: 1000,
 		fetchInterval: 60000,
-//		calendars: ["0=http://127.0.0.1/ical/FTNRW2015.ics","1=#ffffff","2=99","3=http://127.0.0.1/ical/FTNRW2016.ics","4=#ffffff","5=99"],
+//		calendars: ["http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics","#ffffff","99","http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics","#3399ff","99"],
         calendars: [
             {
-                url : "http://127.0.0.1/ical/FTNRW2015.ics",
+                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",
                 color: "#ffffff",
 				slice: "99"
             },
 			{
-                url : "http://127.0.0.1/ical/FTNRW2016.ics",
-                color: "#ffffff",
+                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",
+                color: "#3399ff",
 				slice: "99"
-            }			
+            },
         ],
     },
 }
