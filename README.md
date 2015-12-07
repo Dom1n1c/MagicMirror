@@ -59,3 +59,10 @@ Checks the git version and refreshes if a new version has been pulled.
 ###[Weather](js/weather)
 
 Takes the user's inserted location, language, unit type, and OpenWeatherMap API key and grabs the five day weather forecast from OpenWeatherMap. You need to set the API key in the config for this to work. (See *configuration*.)
+
+
+##Screenshots
+Configpage:
+![smartmirror config](https://cloud.githubusercontent.com/assets/8407566/11643292/247d9d6c-9d43-11e5-9a97-aa2b00c6d168.png)
+Smartmirror:
+![smartmirror](https://cloud.githubusercontent.com/assets/8407566/11643293/2482e47a-9d43-11e5-9edd-0081c2232a6e.png)
