@@ -35,26 +35,15 @@ calendar: {
 //		calendars: [{%calendar.feed%}],
         calendars: [
             {
-                url : "http://10.0.0.1:8888/ical/FTNRW2015.ics",
+                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",
                 color: "#ffffff",
-				slice: "99"
+		slice: "99"
             },
 			{
-                url : "http://10.0.0.1:8888/ical/FTNRW2016.ics",
-                color: "#ffffff",
-				slice: "99"
-            },
-            {
-                url: "https://calendar.google.com/calendar/ical/sptzdmnc%40gmail.com/private-0453d84dbc4c36e1096c11e4ca7a762f/basic.ics",
+                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",
                 color: "#3399ff",
-				slice: "99"
+		slice: "99"
             },
-			{
-                url: "http://10.0.0.1:8888/ical/Abfallkalender2015.ics",
-                color: "#ffffff",
-				slice: "4"
-            }
-			
         ],
     },
 }
