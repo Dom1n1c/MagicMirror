@@ -1,0 +1,60 @@
+var config = {
+    lastUpdate: '{%lastupdate%}',
+    lang: {%lang%},
+    time: {
+        timeFormat: {%time.timeFormat%}
+    },
+    weather: {
+	interval: {%weather.interval%},
+	fadeInterval: {%weather.fadeinterval%},
+        params: {
+            q: {%weather.location%},
+            units: {%weather.units%},
+            lang: {%lang%},
+            APPID: {%weather.APPID%}
+        }
+    },
+    compliments: {
+		interval: {%compliments.interval%},
+		fadeInterval: {%compliments.fadeinterval%},
+        morning: [{%compliments.morning%}],
+        afternoon: [{%compliments.afternoon%}],
+        evening: [{%compliments.evening%}]
+    },
+    news: {
+		interval: {%news.interval%},
+		fadeInterval: {%news.fadeinterval%},
+	    fetchInterval: {%news.fetchinterval%},
+        feed: [{%news.feed%}]
+    },
+calendar: {
+		maxItemsDisplayed: {%calendar.maxitems%},
+	    interval: {%calendar.interval%},
+		fadeInterval: {%calendar.fadeinterval%},
+		fetchInterval: {%calendar.fetchinterval%},
+//		calendars: [{%calendar.feed%}],
+        calendars: [
+            {
+                url : "http://10.0.0.1:8888/ical/FTNRW2015.ics",
+                color: "#ffffff",
+				slice: "99"
+            },
+			{
+                url : "http://10.0.0.1:8888/ical/FTNRW2016.ics",
+                color: "#ffffff",
+				slice: "99"
+            },
+            {
+                url: "https://calendar.google.com/calendar/ical/sptzdmnc%40gmail.com/private-0453d84dbc4c36e1096c11e4ca7a762f/basic.ics",
+                color: "#3399ff",
+				slice: "99"
+            },
+			{
+                url: "http://10.0.0.1:8888/ical/Abfallkalender2015.ics",
+                color: "#ffffff",
+				slice: "4"
+            }
+			
+        ],
+    },
+}

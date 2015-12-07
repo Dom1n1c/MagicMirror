@@ -11,8 +11,8 @@ var news = {
 	_cacheBuster: Math.floor((new Date().getTime()) / 1200 / 1000),
 	_failedAttempts: 0,
 	fetchInterval: config.news.fetchInterval || 60000,
-	updateInterval: config.news.interval || 5500,
-	fadeInterval: 2000,
+	updateInterval: config.news.interval || 10000,
+	fadeInterval: config.news.fadeInterval || 2000,
 	intervalId: null,
 	fetchNewsIntervalId: null
 }

@@ -1,6 +1,6 @@
 var weather = {
 	// Default language is Dutch because that is what the original author used
-	lang: config.lang || 'nl',
+	lang: config.lang || 'en',
 	params: config.weather.params || null,
 	iconTable: {
 		'01d':'wi-day-sunny',
@@ -21,6 +21,26 @@ var weather = {
 		'11n':'wi-night-thunderstorm',
 		'13n':'wi-night-snow',
 		'50n':'wi-night-alt-cloudy-windy'
+	},
+	datelabel: {
+		'bg':'ден',
+		'ca':'dia',
+		'zh_tw':'白天',
+		'hr':'dan',
+		'nl':'Dag',
+		'en':'Day',
+		'fi':'päivä',
+		'fr':'jour',
+		'de':'Tag',
+		'it':'giorno',
+		'pl':'dzień',
+		'pt':'dia',
+		'ro':'zi',
+		'ru':'день',
+		'es':'Día',
+		'sv':'Dag',
+		'tr':'Gün',
+		'uk':'день'
 	},
 	temperatureLocation: '.temp',
 	windSunLocation: '.windsun',
@@ -120,10 +140,10 @@ weather.updateWeatherForecast = function () {
 			_forecastHtml = '';
 			_forecastHtml += '<table class="forecast-table">';
 			_forecastHtml += '<tr style="opacity:' + _opacity + '">';
-			_forecastHtml += '<td class="day">' + weather.params.datelabel[0] +  '</td>';
+			_forecastHtml += '<td class="day">' + weather.datelabel[weather.lang] +  '</td>';
 			_forecastHtml += '<td class="icon-small ' + ' ' + '"></td>';
-			_forecastHtml += '<td class="temp-min">' + weather.params.datelabel[1] + '</td>';
-			_forecastHtml += '<td class="temp-max">' + weather.params.datelabel[2] + '</td>';
+			_forecastHtml += '<td class="temp-min">' + 'Min' + '</td>';
+			_forecastHtml += '<td class="temp-max">' + 'Max' + '</td>';
 			
 			for (var i = 0, count = data.list.length; i < count; i++) {
 				var _forecast = data.list[i];
