@@ -44,19 +44,32 @@ jQuery(document).ready(function($) {
 	var lastCompliment;
 	var compliment;
 	
-
-
-
 	version.init();
-
-	time.init();
-
+	
+	if (config.feature.calendar=='on'){
 	calendar.init();
-
+	}
+	
+	if (config.feature.time=='on'){
+	time.init();
+	}
+	
+	if (config.feature.compliments=='on'){
 	compliments.init();
-
-	weather.init();
-
+	}	
+	
+	if (config.feature.news=='on'){
 	news.init();
+	}	
+	
+	if (config.feature.openhab=='on'){
+	openhab.init();
+	}	
+	
+	if (config.feature.weather=='on'){
+	weather.init();
+	}
+   
+
 
 });

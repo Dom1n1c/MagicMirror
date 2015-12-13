@@ -1,5 +1,13 @@
 var config = {
     lastUpdate: '{%lastupdate%}',
+	feature: {
+		calendar: {%feature.calendar%},
+		compliments: {%feature.compliments%},
+		news: {%feature.news%},
+		openhab: {%feature.openhab%},
+		time: {%feature.time%},
+		weather: {%feature.weather%}
+	},
     lang: {%lang%},
     time: {
         timeFormat: {%time.timeFormat%}
@@ -27,23 +35,21 @@ var config = {
 	    fetchInterval: {%news.fetchinterval%},
         feed: [{%news.feed%}]
     },
-calendar: {
+	calendar: {
 		maxItemsDisplayed: {%calendar.maxitems%},
 	    interval: {%calendar.interval%},
 		fadeInterval: {%calendar.fadeinterval%},
 		fetchInterval: {%calendar.fetchinterval%},
 //		calendars: [{%calendar.feed%}],
         calendars: [
-            {
-                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",
-                color: "#ffffff",
-				slice: "99"
-            },
-			{
-                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",
-                color: "#3399ff",
-				slice: "99"
-            },
+            {url: "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
+			{url: "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",color: "#3399ff",slice: "99"},
         ],
     },
+	openhab: {
+		interval: {%openhab.interval%},
+		fadeInterval: {%openhab.fadeInterval%},
+		fetchInterval: {%openhab.fetchinterval%},
+		feed: [{%openhab.feed%}]
+	},
 }

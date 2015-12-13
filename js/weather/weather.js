@@ -22,7 +22,7 @@ var weather = {
 		'13n':'wi-night-snow',
 		'50n':'wi-night-alt-cloudy-windy'
 	},
-	datelabel: {
+datelabel: {
 		'bg':	['ден','Min','Max'],
 		'ca':	['dia','Min','Max'],
 		'zh_tw':['白天','Min','Max'],
@@ -30,16 +30,16 @@ var weather = {
 		'nl':	['Dag','Min','Max'],
 		'en':	['Day','Min','Max'],
 		'fi':	['päivä','Min','Max'],
-		'fr':	['jour','Min','Max'],
+		'fr':	['jour','min','max'],
 		'de':	['Tag','Min','Max'],
 		'it':	['giorno','Min','Max'],
 		'pl':	['dzień','Min','Max'],
 		'pt':	['dia','Min','Max'],
 		'ro':	['zi','Min','Max'],
-		'ru':	['день','Min','Max'],
+		'ru':	['день','мин','макс'],
 		'es':	['Día','Min','Max'],
 		'sv':	['Dag','Min','Max'],
-		'tr':	['Gün','Min','Max'],
+		'tr':	['gün','en az','Max'],
 		'uk':	['день','Min','Max']
 	},
 	temperatureLocation: '.temp',
@@ -139,17 +139,17 @@ weather.updateWeatherForecast = function () {
 			var _opacity = 1,
 			_forecastHtml = '';
 			_forecastHtml += '<table class="forecast-table">';
-			_forecastHtml += '<tr style="opacity:' + _opacity + '">';
-			_forecastHtml += '<td class="day">' + weather.datelabel[weather.lang] +  '</td>';
+//			_forecastHtml += '<tr style="opacity:' + _opacity + '">';
 			_forecastHtml += '<td class="icon-small ' + ' ' + '"></td>';
-			_forecastHtml += '<td class="temp-min">' + 'Min' + '</td>';
-			_forecastHtml += '<td class="temp-max">' + 'Max' + '</td>';
+			_forecastHtml += '<td class="day">' + weather.datelabel[weather.lang][0] +  '</td>';
+			_forecastHtml += '<td class="temp-min">' + weather.datelabel[weather.lang][1] + '</td>';
+			_forecastHtml += '<td class="temp-max">' + weather.datelabel[weather.lang][2] + '</td>';
 			
 			for (var i = 0, count = data.list.length; i < count; i++) {
 				var _forecast = data.list[i];
 				_forecastHtml += '<tr style="opacity:' + _opacity + '">';
+				_forecastHtml += '<td class="xsmall wi ' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
 				_forecastHtml += '<td class="day">' + moment(_forecast.dt, 'X').format('ddd') + '</td>';
-				_forecastHtml += '<td class="icon-small ' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
 				_forecastHtml += '<td class="temp-min">' + this.roundValue(_forecast.temp.min) + '</td>';
 				_forecastHtml += '<td class="temp-max">' + this.roundValue(_forecast.temp.max) + '</td>';
 				_forecastHtml += '</tr>';

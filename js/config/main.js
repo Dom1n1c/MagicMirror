@@ -20,10 +20,6 @@ var createInputCalendar = function (text, index, area) {
 		return textbox[3]+textbox[0]+textbox[6]+textbox[7]+   textbox[4]+textbox[1]+textbox[6]+textbox[7]+   textbox[5]+textbox[2]+textbox[6]  ;
 }
 
-
-
-
-
 var createRemoveButton = function (relatedIndex) {
 	return '<button type="button" data-index="' + relatedIndex + '" class="remove pure-button pure-u-1"><i class="fa fa-minus"></i></a>';
 }
@@ -47,7 +43,21 @@ $(document).ready(function () {
 		var _options = '<option value="' + _curr + '">' + _TempUnitSymbol[_index] + '</option>';
 		$('#weather-group select').append(_options);
 	});
-
+	
+	var _enableFeature = ['on', 'off'];
+	 _enableText = ['enabled', 'disabled'],
+	_enableFeature.forEach(function (_curr, _index) {
+		var _options = '<option value="' + _curr + '">' + _enableText[_index] + '</option>';
+		$('#feature-group select').append(_options);
+	});
+	
+	// Set the en/disabled features
+	$('#feature-group select#f1').val(_config.feature.calendar);
+	$('#feature-group select#f2').val(_config.feature.compliments);
+	$('#feature-group select#f3').val(_config.feature.news);
+	$('#feature-group select#f4').val(_config.feature.openhab);
+	$('#feature-group select#f5').val(_config.feature.time);
+	$('#feature-group select#f6').val(_config.feature.weather);
 	// Set the language value
 	$('#language-group select').val(_config.lang);
 	// Set the time values
@@ -104,10 +114,6 @@ $(document).ready(function () {
 	// Append the final "Add" button for adding another news feed
 	$('#news-feeds-remove').append(createAddButton(_config.news.feed.length, 'newsfeed[]', 'news feed'));
 	
-	
-	
-	
-	
 	$('#calendar-group #maxitems').val(_config.calendar.maxItemsDisplayed);
 	$('#calendar-group #interval').val(_config.calendar.interval);
 	$('#calendar-group #fetchinterval').val(_config.calendar.fetchInterval);
@@ -123,4 +129,18 @@ $(document).ready(function () {
 
 	// Append the final "Add" button for adding another news feed
 	$('#calendar-feeds-remove').append(createAddButton(_config.calendar.calendars.length, 'calfeed[]', 'cal feed'));
+	
+	$('#openhab-group #url').val(_config.openhab.feed);
+	$('#openhab-group #interval').val(_config.openhab.interval);
+	$('#openhab-group #fetchinterval').val(_config.openhab.fetchInterval);
+	$('#openhab-group #fadeinterval').val(_config.openhab.fadeInterval);
+		// Loop through the selected news feeds
+	_config.openhab.feed.forEach(function (_curr, _index) {
+		var _input = createInput(_curr, _index, 'ohafeed[]'),
+			_button = createRemoveButton(_index);
+		$('#openhab-feeds').append(_input);
+		$('#openhab-feeds-remove').append(_button);
+	});
+	// Append the final "Add" button for adding another news feed
+	$('#openhab-feeds-remove').append(createAddButton(_config.openhab.feed.length, 'ohafeed[]', 'openhab feed'));
 });

@@ -1,5 +1,13 @@
 var config = {
-    lastUpdate: '2015-12-07T23:17:44+00:00',
+    lastUpdate: '2015-12-13T20:23:16+00:00',
+	feature: {
+		calendar: "on",
+		compliments: "on",
+		news: "on",
+		openhab: "off",
+		time: "on",
+		weather: "on"
+	},
     lang: "de",
     time: {
         timeFormat: "24"
@@ -11,7 +19,7 @@ var config = {
             q: "Düsseldorf,DE",
             units: "metric",
             lang: "de",
-            APPID: "APIKEY"
+            APPID: ""
         }
     },
     compliments: {
@@ -27,23 +35,21 @@ var config = {
 	    fetchInterval: 60000,
         feed: ["http://www.faz.net/rss/aktuell/"]
     },
-calendar: {
+	calendar: {
 		maxItemsDisplayed: 20,
 	    interval: 1000,
 		fadeInterval: 1000,
 		fetchInterval: 60000,
 //		calendars: ["http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics","#ffffff","99","http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics","#3399ff","99"],
         calendars: [
-            {
-                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",
-                color: "#ffffff",
-				slice: "99"
-            },
-			{
-                url : "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",
-                color: "#3399ff",
-				slice: "99"
-            },
+            {url: "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
+			{url: "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",color: "#3399ff",slice: "99"},
         ],
     },
+	openhab: {
+		interval: 15000,
+		fadeInterval: 5000,
+		fetchInterval: 2000,
+		feed: ["http://10.0.0.1:8081/rest/items/SmartMirrorTXT/?type=json"]
+	},
 }

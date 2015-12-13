@@ -17,7 +17,9 @@
 
 	<div class="top left"><div class="date small dimmed"></div><div class="time"></div><div class="calendar xxsmall"></div></div>
 	<div class="top right"><div class="windsun small dimmed"></div><div class="temp"></div><div class="forecast small dimmed"></div></div>
-	<div class="center-ver center-hor"></div>
+	<div class="center-ver center-hor">
+			<div class="openhab light"></div>
+	</div>
 	<div class="lower-third center-hor"><div class="compliment light"></div></div>
 	<div class="bottom center-hor"><div class="news medium"></div></div>
 
@@ -31,6 +33,7 @@
 <script src="js/calendar/calendar.js" type="text/javascript"></script>
 <script src="js/compliments/compliments.js" type="text/javascript"></script>
 <script src="js/weather/weather.js" type="text/javascript"></script>
+<!-- <script src="js/openhab/openhab.js" type="text/javascript"></script> -->
 <script src="js/time/time.js" type="text/javascript"></script>
 <script src="js/news/news.js" type="text/javascript"></script>
 <script src="js/main.js?nocache=<?php echo md5(microtime()) ?>"></script>
