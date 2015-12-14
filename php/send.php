@@ -40,8 +40,10 @@
 	$calendar['interval'] = (string) $_GET['ivcal'];
 	$calendar['fadeinterval'] = (string) $_GET['facal'];
 	$calendar['fetchinterval'] = (string) $_GET['fecal'];
-	$calendar['feed'] = "\"" . implode('","', $_GET['calfeed']) . "\"";
+//	$calendar['feed'] = "\"" . implode('","', $_GET['calfeed']) . "\"";
 //	$calendar['feed'] = "\"" . implode('","', array_map(function ($v, $k) { return $k . '=' . $v; }, $_GET['calfeed'], array_keys($_GET['calfeed'])));
+	$a=array("url"=>"","color"=>"","slice"=>"");
+	$calendar['feed'] = "{" . implode('",', array_map(function ($v, $k) { return $k . ': "' . $v; }, $_GET['calfeed'], array_keys($a))) . "}";
 	
 	$openhab = [];
 	$openhab['interval'] = (string) $_GET['ivoha'];

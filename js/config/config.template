@@ -40,7 +40,9 @@ var config = {
 	    interval: {%calendar.interval%},
 		fadeInterval: {%calendar.fadeinterval%},
 		fetchInterval: {%calendar.fetchinterval%},
-//		calendars: [{%calendar.feed%}],
+//		calendars: [
+//			{%calendar.feed%}
+//		],
         calendars: [
             {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
             {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2016.ics",color: "#00ff00",slice: "99"},
