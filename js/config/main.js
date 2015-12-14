@@ -4,7 +4,7 @@ var createInput = function (text, index, area, placeholder) {
 	if (placeholder === undefined) {
 		placeholder = '';
 	}
-	return '<input class="pure-input-1" placeholder="' + placeholder + '" data-index="' + index + '" type="text" name="' + area + '" value="' + text + '">';
+	return '<input class="pure-input-1" placeholder="' + placeholder + '" data-index="' + index + '" type="text" name="' + area + '" value="' + text + '" required>';
 }
 
 var createInputCalendar = function (text, index, area) {
