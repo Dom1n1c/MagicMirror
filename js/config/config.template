@@ -18,7 +18,7 @@ var config = {
         params: {
             q: {%weather.location%},
             units: {%weather.units%},
-            lang: {%lang%},
+            lang: "en",
             APPID: {%weather.APPID%}
         }
     },
@@ -42,8 +42,9 @@ var config = {
 		fetchInterval: {%calendar.fetchinterval%},
 //		calendars: [{%calendar.feed%}],
         calendars: [
-            {url: "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
-			{url: "http://www.schulferien.org/iCal/Ferien/icals/Ferien_Nordrhein_Westfalen_2016.ics",color: "#3399ff",slice: "99"},
+            {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
+            {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2016.ics",color: "#00ff00",slice: "99"},
+            {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2017.ics",color: "#0000ff",slice: "99"}
         ],
     },
 	openhab: {

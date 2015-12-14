@@ -29,9 +29,10 @@ var createAddButton = function (nextIndex, nameAttachment, itemName) {
 }
 
 $(document).ready(function () {
-	// Choices based on http://openweathermap.org/current#multi
-	var _weatherLangVals = ['bg', 'ca', 'zh_tw', 'hr', 'nl', 'en', 'fi', 'fr', 'de', 'it', 'pl', 'pt', 'ro', 'ru', 'es', 'sv', 'tr', 'uk'],
-		_weatherLangs = ['Bulgarian', 'Catalan', 'Chinese Traditional', 'Croatian', 'Dutch', 'English', 'Finnish', 'French', 'German', 'Italian', 'Polish', 'Portuguese', 'Romanian', 'Russian',  'Spanish', 'Swedish', 'Turkish', 'Ukranian'];
+	// Choices based on http://stackoverflow.com/questions/7973023/what-is-the-list-of-supported-languages-locales-on-android
+	var _weatherLangVals = ['Auto', 'ar_EG', 'ar_IL', 'bg_BG', 'ca_ES', 'cs_CZ', 'da_DK', 'de_AT', 'de_CH', 'de_DE', 'de_LI', 'el_GR', 'en_AU', 'en_CA', 'en_GB', 'en_IE', 'en_IN', 'en_NZ', 'en_SG', 'en_US', 'en_ZA', 'es_ES', 'es_US', 'fi_FI', 'fr_BE', 'fr_CA', 'fr_CH', 'fr_FR', 'he_IL', 'hi_IN', 'hr_HR', 'hu_HU', 'id_ID', 'it_CH', 'it_IT', 'ja_JP', 'ko_KR', 'lt_LT', 'lv_LV', 'nb_NO', 'nl_BE', 'nl_NL', 'pl_PL', 'pt_BR', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SI', 'sr_RS', 'sv_SE', 'th_TH', 'tl_PH', 'tr_TR', 'uk_UA', 'vi_VN', 'zh_CN', 'zh_TW'],
+		_weatherLangs = ['System Locale', 'Arabic, Egypt', 'Arabic, Israel', 'Bulgarian, Bulgaria', 'Catalan, Spain', 'Czech, Czech Republic', 'Danish, Denmar', 'German, Austria', 'German, Switzerland', 'German, Germany', 'German, Liechtenstein', 'Greek, Greece', 'English, Australia', 'English, Canada', 'English, Britain', 'English, Ireland', 'English, India', 'English, New Zealand', 'English, Singapor', 'English, US', 'English, South Africa', 'Spanish', 'Spanish, US', 'Finnish, Finland', 'French, Belgium', 'French, Canada', 'French, Switzerland', 'French, France', 'Hebrew, Israel', 'Hindi, India', 'Croatian, Croatia', 'Hungarian, Hungary', 'Indonesian, Indonesia', 'Italian, Switzerland', 'Italian, Italy', 'Japanese', 'Korean', 'Lithuanian, Lithuania', 'Latvian, Latvia', 'Norwegian bokmål, Norway', 'Dutch, Belgium', 'Dutch, Netherlands', 'Polish', 'Portuguese, Brazil', 'Portuguese, Portugal', 'Romanian, Romania', 'Russian', 'Slovak, Slovakia', 'Slovenian, Slovenia', 'Serbian', 'Swedish, Sweden', 'Thai, Thailand', 'Tagalog, Philippines', 'Turkish, Turkey', 'Ukrainian, Ukraine', 'Vietnamese, Vietnam', 'Chinese, PRC', 'Chinese, Taiwan'];
+
 	_weatherLangVals.forEach(function (_curr, _index) {
 		var _options = '<option value="' + _curr + '">' + _weatherLangs[_index] + ' (' + _curr + ')</option>';
 		$('#language-group select').append(_options);
