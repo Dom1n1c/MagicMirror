@@ -24,9 +24,9 @@ availible at the moment, but maybe missspelled:
 
 -slicing calendar trough config
 
--dis- and enable features trough config
+-Fix small weather icons (not alligned)
 
--enable small weather icons in the weather widget (forecast-icons are not shown atm)
+-Add openhab Support for push-notifactions from the SmartHome-system (JSON-Text-Status)
 
 
 ##Code
@@ -63,6 +63,6 @@ Takes the user's inserted location, language, unit type, and OpenWeatherMap API 
 
 ##Screenshots
 Configpage:
-![smartmirror config](https://cloud.githubusercontent.com/assets/8407566/11643292/247d9d6c-9d43-11e5-9a97-aa2b00c6d168.png)
+![smartmirror config](https://cloud.githubusercontent.com/assets/8407566/11770629/c3729dc2-a203-11e5-99ae-b832df2e99c0.png)
 Smartmirror:
-![smartmirror](https://cloud.githubusercontent.com/assets/8407566/11643293/2482e47a-9d43-11e5-9edd-0081c2232a6e.png)
+![smartmirror](https://cloud.githubusercontent.com/assets/8407566/11770627/a8658a08-a203-11e5-9977-d9bc5eb37377.png)
