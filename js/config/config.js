@@ -1,5 +1,5 @@
 var config = {
-    lastUpdate: '2015-12-14T23:52:42+00:00',
+    lastUpdate: '2015-12-15T16:36:57+00:00',
 	feature: {
 		calendar: "on",
 		compliments: "on",
@@ -40,14 +40,11 @@ var config = {
 	    interval: 1000,
 		fadeInterval: 1000,
 		fetchInterval: 60000,
-//		calendars: [
-//			{url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99",: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2016.ics",: "#00ff00",: "99",: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2017.ics",: "#0000ff",: "99}
-//		],
-        calendars: [
-            {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
-            {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2016.ics",color: "#00ff00",slice: "99"},
-            {url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2017.ics",color: "#0000ff",slice: "99"}
-        ],
+		calendars: [
+			{url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
+			{url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2016.ics",color: "#0000ff",slice: "99"},
+			{url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2017.ics",color: "#ffffff",slice: "99"}
+		],
     },
 	openhab: {
 		interval: 15000,

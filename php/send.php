@@ -40,10 +40,12 @@
 	$calendar['interval'] = (string) $_GET['ivcal'];
 	$calendar['fadeinterval'] = (string) $_GET['facal'];
 	$calendar['fetchinterval'] = (string) $_GET['fecal'];
-//	$calendar['feed'] = "\"" . implode('","', $_GET['calfeed']) . "\"";
-//	$calendar['feed'] = "\"" . implode('","', array_map(function ($v, $k) { return $k . '=' . $v; }, $_GET['calfeed'], array_keys($_GET['calfeed'])));
-	$a=array("url"=>"","color"=>"","slice"=>"");
-	$calendar['feed'] = "{" . implode('",', array_map(function ($v, $k) { return $k . ': "' . $v; }, $_GET['calfeed'], array_keys($a))) . "}";
+	$calkeys=array("url"=>"","color"=>"","slice"=>"");
+	$elements = array();
+	foreach (array_chunk($_GET['calfeed'], 3) as $section) {
+	$elements[] = implode('",', array_map(function ($v, $k) { return $k . ': "' . $v; }, $section, array_keys($calkeys)));
+	}
+	$calendar['feed'] = "{" . implode( '"},'."\n\t\t\t".'{'  ,$elements) . '"}';
 	
 	$openhab = [];
 	$openhab['interval'] = (string) $_GET['ivoha'];
