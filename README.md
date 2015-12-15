@@ -16,15 +16,11 @@ Please mind that you have to create an account at OpenWeatherMap.org and enter t
 
 ##To-Do
 
--Translation of the datelabels in [weather.js](js/weather/weather.js) file. (If someone can help me with the translation of the Words Day, Min and Max(for minimum and maximum), you're welcome)
-availible at the moment, but maybe missspelled: 
-'Bulgarian', 'Catalan', 'Chinese Traditional', 'Croatian', 'Dutch', 'English', 'Finnish', 'French', 'German', 'Italian', 'Polish', 'Portuguese', 'Romanian', 'Russian',  'Spanish', 'Swedish', 'Turkish', 'Ukranian'
+-Translation of the datelabels in [weather.js](js/weather/weather.js) file. (If someone can help me with the translation of the Words Day, Min and Max(for minimum and maximum), you're welcome) -> [Translation of the Datelabels](https://github.com/Dom1n1c/Smartmirror/issues/3)
 
--config of the calendar trough webinterface. (it's difficult to read and write the array with 3 items)
+-Adding new calendar feeds to the Config via configpage -> [Adding new Calendars does not succeed](https://github.com/Dom1n1c/Smartmirror/issues/4)
 
 -slicing calendar trough config
-
--Fix small weather icons (not alligned)
 
 -Add openhab Support for push-notifactions from the SmartHome-system (JSON-Text-Status)
 
