@@ -13,9 +13,9 @@ var createInputCalendar = function (text, index, area) {
 		
 		
 		var textbox =['<input class="pure-u-1" placeholder="' + placeholder[0] + '" data-index="' + index + '" type="text" name="' + area + '" value="' + text.url   + '">', 
-		 '<input class="pure-u-1" placeholder="' + placeholder[1] + '" data-index="' + index + '" type="text" name="' + area + '" value="' + text.color + '">',
+		 '<input class="pure-u-1" placeholder="' + placeholder[1] + '" data-index="' + index + '" type="text" name="' + area + '" value="' + text.color.toUpperCase() + '">',
 		 '<input class="pure-input-1" placeholder="' + placeholder[2] + '" data-index="' + index + '" type="text" name="' + area + '" value="' + text.slice + '">',
-		 '<div class="pure-u-17-24">','<div class="pure-u-3-24">','<div class="pure-u-2-24">','</div>','<div class="pure-u-1-24"></div>'];
+		 '<div class="pure-u-16-24">','<div class="pure-u-4-24">','<div class="pure-u-2-24">','</div>','<div class="pure-u-1-24"></div>'];
 	}
 		return textbox[3]+textbox[0]+textbox[6]+textbox[7]+   textbox[4]+textbox[1]+textbox[6]+textbox[7]+   textbox[5]+textbox[2]+textbox[6]  ;
 }

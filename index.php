@@ -21,7 +21,8 @@
 			<div class="openhab light"></div>
 	</div>
 	<div class="lower-third center-hor"><div class="compliment light"></div></div>
-	<div class="bottom center-hor"><div class="news medium"></div></div>
+	<div class="bottom center-hor"><div class="newshead newsh medium"></div>
+	<div class="news medium newsd"></div></div>
 
 <script src="js/addons/jquery.js"></script>
 <script src="js/addons/jquery.feedToJSON.js"></script>

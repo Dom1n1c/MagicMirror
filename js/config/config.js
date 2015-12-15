@@ -1,5 +1,5 @@
 var config = {
-    lastUpdate: '2015-12-15T16:36:57+00:00',
+    lastUpdate: '2015-12-15T23:44:05+00:00',
 	feature: {
 		calendar: "on",
 		compliments: "on",
@@ -30,10 +30,10 @@ var config = {
         evening: ["Wie war dein Tag?","Schöner Anblick!","Du bist sexy!","Mach dir einen schönen Abend!"]
     },
     news: {
-		interval: 10000,
-		fadeInterval: 3000,
+		interval: 15000,
+		fadeInterval: 1500,
 	    fetchInterval: 60000,
-        feed: ["http://www.faz.net/rss/aktuell/"]
+        feed: ["http://www.faz.net/rss/aktuell/","http://derwesten.dynamic.feedsportal.com/pf/637010/www.derwesten.de/nrz/staedte/duesseldorf/?service=rss"]
     },
 	calendar: {
 		maxItemsDisplayed: 20,
@@ -41,9 +41,9 @@ var config = {
 		fadeInterval: 1000,
 		fetchInterval: 60000,
 		calendars: [
-			{url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2015.ics",color: "#ffffff",slice: "99"},
-			{url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2016.ics",color: "#0000ff",slice: "99"},
-			{url: "http://www.schulferien.org/iCal/Feiertage/icals/Feiertage_Nordrhein_Westfalen_2017.ics",color: "#ffffff",slice: "99"}
+			{url: "http://10.0.0.1:8888/ical/FTNRW2015.ics",color: "#FFFFFF",slice: "99"},
+			{url: "http://10.0.0.1:8888/ical/FTNRW2016.ics",color: "#FFFFFF",slice: "99"},
+			{url: "http://10.0.0.1:8888/ical/Abfallkalender2015.ics",color: "#FFFFFF",slice: "99"}
 		],
     },
 	openhab: {
