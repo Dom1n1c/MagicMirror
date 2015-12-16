@@ -61,4 +61,4 @@ Takes the user's inserted location, language, unit type, and OpenWeatherMap API 
 Configpage:
 ![smartmirror config](https://cloud.githubusercontent.com/assets/8407566/11770629/c3729dc2-a203-11e5-99ae-b832df2e99c0.png)
 Smartmirror:
-![smartmirror](https://cloud.githubusercontent.com/assets/8407566/11770627/a8658a08-a203-11e5-9977-d9bc5eb37377.png)
+![smartmirror](https://cloud.githubusercontent.com/assets/8407566/11834739/7d1387c4-a3cf-11e5-8651-27541cb28b5f.png)
