@@ -28,6 +28,56 @@ var createAddButton = function (nextIndex, nameAttachment, itemName) {
 	return '<button type="button" data-index="' + nextIndex + '" class="add pure-button pure-u-1" data-name-attachment="' + nameAttachment + '" data-item-name="' + itemName + '"><i class="fa fa-plus"></i></a>';
 }
 
+// removing an item from a list of text input
+// This is very inefficient because it loops through the number of rows twice
+// 	every time an item is removed but I can't imagine someone coming up with a
+// 	large enough list of items to cause a delay
+$('fieldset').on('click', '.remove', function () {
+
+	var _parent = $(this).closest('.pure-group'),
+		_index = $(this).data('index');
+
+	// remove the clicked element
+	$(this).remove();
+	// remove the associated element
+	_parent.find('input[data-index="' + _index + '"]').remove();
+
+	_parent.find('button').each(function (_index, _element) {
+
+		$(_element).data('index', _index);
+
+	});
+
+	// Do not restrict to '.remove' because we need the next index if another item is added
+	_parent.find('input').each(function (_index, _element) {
+
+		$(_element).data('index', _index);
+
+	});
+
+});
+
+// adding an item to a list of text input
+$('fieldset').on('click', '.add', function () {
+
+	var _currIndex = $(this).data('index'),
+		_nameAttachment = $(this).data('name-attachment'),
+		_itemName = $(this).data('item-name'),
+		_input = createInput('', _currIndex, _nameAttachment, 'INSERT NEW ' + _itemName.toUpperCase()),
+		_button = createRemoveButton(_currIndex);
+
+	var _parent = $(this).closest('.pure-group');
+
+	// insert the new textbox
+	_parent.find('input:last-of-type').after(_input);
+	// insert the new button
+	$(this).before(_button);
+
+	// increment the add button's index
+	$(this).data('index', _currIndex+1);
+
+});
+
 $(document).ready(function () {
 	// Choices based on http://stackoverflow.com/questions/7973023/what-is-the-list-of-supported-languages-locales-on-android
 	var _weatherLangVals = ['Auto', 'ar_EG', 'ar_IL', 'bg_BG', 'ca_ES', 'cs_CZ', 'da_DK', 'de_AT', 'de_CH', 'de_DE', 'de_LI', 'el_GR', 'en_AU', 'en_CA', 'en_GB', 'en_IE', 'en_IN', 'en_NZ', 'en_SG', 'en_US', 'en_ZA', 'es_ES', 'es_US', 'fi_FI', 'fr_BE', 'fr_CA', 'fr_CH', 'fr_FR', 'he_IL', 'hi_IN', 'hr_HR', 'hu_HU', 'id_ID', 'it_CH', 'it_IT', 'ja_JP', 'ko_KR', 'lt_LT', 'lv_LV', 'nb_NO', 'nl_BE', 'nl_NL', 'pl_PL', 'pt_BR', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SI', 'sr_RS', 'sv_SE', 'th_TH', 'tl_PH', 'tr_TR', 'uk_UA', 'vi_VN', 'zh_CN', 'zh_TW'],
