@@ -1,6 +1,5 @@
 var weather = {
-	// Default language is Dutch because that is what the original author used
-	lang: config.lang || 'nl',
+	lang: config.lang || 'en',
 	params: config.weather.params || null,
 	iconTable: {
 		'01d':'wi-day-sunny',
@@ -21,6 +20,65 @@ var weather = {
 		'11n':'wi-night-thunderstorm',
 		'13n':'wi-night-snow',
 		'50n':'wi-night-alt-cloudy-windy'
+	},
+datelabel: {
+		'ar_EG':	['Day','Min','Max'],
+		'ar_IL':	['Day','Min','Max'],
+		'bg_BG':	['Day','Min','Max'],
+		'ca_ES':	['Day','Min','Max'],
+		'cs_CZ':	['Day','Min','Max'],
+		'da_DK':	['Day','Min','Max'],
+		'de_AT':	['Tag','Min','Max'],
+		'de_CH':	['Tag','Min','Max'],
+		'de_DE':	['Tag','Min','Max'],
+		'de_LI':	['Tag','Min','Max'],
+		'el_GR':	['Day','Min','Max'],
+		'en_AU':	['Day','Min','Max'],
+		'en_CA':	['Day','Min','Max'],
+		'en_GB':	['Day','Min','Max'],
+		'en_IE':	['Day','Min','Max'],
+		'en_IN':	['Day','Min','Max'],
+		'en_NZ':	['Day','Min','Max'],
+		'en_SG':	['Day','Min','Max'],
+		'en_US':	['Day','Min','Max'],
+		'en_ZA':	['Day','Min','Max'],
+		'es_ES':	['Day','Min','Max'],
+		'es_US':	['Day','Min','Max'],
+		'fi_FI':	['Day','Min','Max'],
+		'fr_BE':	['Day','Min','Max'],
+		'fr_CA':	['Day','Min','Max'],
+		'fr_CH':	['Day','Min','Max'],
+		'fr_FR':	['Day','Min','Max'],
+		'he_IL':	['Day','Min','Max'],
+		'hi_IN':	['Day','Min','Max'],
+		'hr_HR':	['Day','Min','Max'],
+		'hu_HU':	['Day','Min','Max'],
+		'id_ID':	['Day','Min','Max'],
+		'it_CH':	['Day','Min','Max'],
+		'it_IT':	['Day','Min','Max'],
+		'ja_JP':	['Day','Min','Max'],
+		'ko_KR':	['Day','Min','Max'],
+		'lt_LT':	['Day','Min','Max'],
+		'lv_LV':	['Day','Min','Max'],
+		'nb_NO':	['Day','Min','Max'],
+		'nl_BE':	['Day','Min','Max'],
+		'nl_NL':	['Day','Min','Max'],
+		'pl_PL':	['Day','Min','Max'],
+		'pt_BR':	['Day','Min','Max'],
+		'pt_PT':	['Day','Min','Max'],
+		'ro_RO':	['Day','Min','Max'],
+		'ru_RU':	['Day','Min','Max'],
+		'sk_SK':	['Day','Min','Max'],
+		'sl_SI':	['Day','Min','Max'],
+		'sr_RS':	['Day','Min','Max'],
+		'sv_SE':	['Day','Min','Max'],
+		'th_TH':	['Day','Min','Max'],
+		'tl_PH':	['Day','Min','Max'],
+		'tr_TR':	['Day','Min','Max'],
+		'uk_UA':	['Day','Min','Max'],
+		'vi_VN':	['Day','Min','Max'],
+		'zh_CN':	['Day','Min','Max'],
+		'zh_TW':	['Day','Min','Max']
 	},
 	temperatureLocation: '.temp',
 	windSunLocation: '.windsun',
@@ -119,17 +177,17 @@ weather.updateWeatherForecast = function () {
 			var _opacity = 1,
 			_forecastHtml = '';
 			_forecastHtml += '<table class="forecast-table">';
-			_forecastHtml += '<tr style="opacity:' + _opacity + '">';
-			_forecastHtml += '<td class="day">' + weather.params.datelabel[0] +  '</td>';
+//			_forecastHtml += '<tr style="opacity:' + _opacity + '">';
 			_forecastHtml += '<td class="icon-small ' + ' ' + '"></td>';
-			_forecastHtml += '<td class="temp-min">' + weather.params.datelabel[1] + '</td>';
-			_forecastHtml += '<td class="temp-max">' + weather.params.datelabel[2] + '</td>';
+			_forecastHtml += '<td class="day">' + weather.datelabel[weather.lang][0] +  '</td>';
+			_forecastHtml += '<td class="temp-min">' + weather.datelabel[weather.lang][1] + '</td>';
+			_forecastHtml += '<td class="temp-max">' + weather.datelabel[weather.lang][2] + '</td>';
 			
 			for (var i = 0, count = data.list.length; i < count; i++) {
 				var _forecast = data.list[i];
 				_forecastHtml += '<tr style="opacity:' + _opacity + '">';
+				_forecastHtml += '<td class="xsmall wi ' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
 				_forecastHtml += '<td class="day">' + moment(_forecast.dt, 'X').format('ddd') + '</td>';
-				_forecastHtml += '<td class="icon-small ' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
 				_forecastHtml += '<td class="temp-min">' + this.roundValue(_forecast.temp.min) + '</td>';
 				_forecastHtml += '<td class="temp-max">' + this.roundValue(_forecast.temp.max) + '</td>';
 				_forecastHtml += '</tr>';

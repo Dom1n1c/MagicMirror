@@ -2,11 +2,11 @@
 var calendar = {
 	eventList: [],
 	calendarLocation: '.calendar',
-	calendarMaxItems: config.calendar.maxItemsDisplayed,
+	calendarMaxItems: config.calendar.maxItemsDisplayed || 20,
 	calendars : config.calendar.calendars,
-	updateInterval: 1000,
-	updateDataInterval: 60000,
-	fadeInterval: 1000,
+	updateInterval: config.calendar.interval || 1000,
+	fetchInterval: config.calendar.fetchInterval|| 60000,
+	fadeInterval: config.calendar.fadeInterval || 1000,
 	intervalId: null,
 	dataIntervalId: null,
 	isDataUpdating: false,
@@ -42,7 +42,7 @@ calendar.updateData = function (callback) {
 
 calendar.getCalendarData = function(url, color, callback) {
 
-	new ical_parser("calendar.php?url=" + encodeURIComponent(url), function(cal) {
+	new ical_parser("./php/calendar.php?url=" + encodeURIComponent(url), function(cal) {
 		var events = cal.getEvents();
 
 		for (var i in events) {
@@ -160,6 +160,6 @@ calendar.init = function () {
 
 	this.dataIntervalId = setInterval(function () {
 		this.updateData(this.updateCalendar.bind(this));
-	}.bind(this), this.updateDataInterval);
+	}.bind(this), this.fetchInterval);
 
 }

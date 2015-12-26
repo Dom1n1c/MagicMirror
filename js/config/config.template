@@ -1,0 +1,53 @@
+var config = {
+    lastUpdate: '{%lastupdate%}',
+	feature: {
+		calendar: {%feature.calendar%},
+		compliments: {%feature.compliments%},
+		news: {%feature.news%},
+		openhab: {%feature.openhab%},
+		time: {%feature.time%},
+		weather: {%feature.weather%}
+	},
+    lang: {%lang%},
+    time: {
+        timeFormat: {%time.timeFormat%}
+    },
+    weather: {
+	interval: {%weather.interval%},
+	fadeInterval: {%weather.fadeinterval%},
+        params: {
+            q: {%weather.location%},
+            units: {%weather.units%},
+            lang: "en",
+            APPID: {%weather.APPID%}
+        }
+    },
+    compliments: {
+		interval: {%compliments.interval%},
+		fadeInterval: {%compliments.fadeinterval%},
+        morning: [{%compliments.morning%}],
+        afternoon: [{%compliments.afternoon%}],
+        evening: [{%compliments.evening%}]
+    },
+    news: {
+		interval: {%news.interval%},
+		fadeInterval: {%news.fadeinterval%},
+	    fetchInterval: {%news.fetchinterval%},
+        feed: [{%news.feed%}]
+    },
+	calendar: {
+		maxItemsDisplayed: {%calendar.maxitems%},
+	    interval: {%calendar.interval%},
+		fadeInterval: {%calendar.fadeinterval%},
+		fetchInterval: {%calendar.fetchinterval%},
+		calendars: [
+			{%calendar.feed%}
+		],
+    },
+	openhab: {
+		interval: {%openhab.interval%},
+		fadeInterval: {%openhab.fadeInterval%},
+		fetchInterval: {%openhab.fetchinterval%},
+		feed: [{%openhab.feed%}]
+	},
+}

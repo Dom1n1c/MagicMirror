@@ -3,16 +3,19 @@
 // The original version can be found here: http://airshp.com/2011/jquery-plugin-feed-to-json/
 var news = {
 	feed: config.news.feed || null,
-	newsLocation: '.news',
-	newsItems: [],
-	seenNewsItem: [],
+	newsHeadLocation: '.newshead',
+	newsDescLocation: '.news',
+	newsHeader: [],
+	seenNewsHeader: [],
+	newsDesc: [],
+	seenNewsDesc: [],
 	_yqURL: 'http://query.yahooapis.com/v1/public/yql',
 	_yqlQS: '?format=json&q=select%20*%20from%20rss%20where%20url%3D',
 	_cacheBuster: Math.floor((new Date().getTime()) / 1200 / 1000),
 	_failedAttempts: 0,
 	fetchInterval: config.news.fetchInterval || 60000,
-	updateInterval: config.news.interval || 5500,
-	fadeInterval: 2000,
+	updateInterval: config.news.interval || 10000,
+	fadeInterval: config.news.fadeInterval || 2000,
 	intervalId: null,
 	fetchNewsIntervalId: null
 }
@@ -34,8 +37,9 @@ news.buildQueryString = function (feed) {
 news.fetchNews = function () {
 
 	// Reset the news feed
-	this.newsItems = [];
-
+	this.newsHeader = [];
+	this.newsDesc = [];
+	
 	this.feed.forEach(function (_curr) {
 
 		var _yqUrlString = this.buildQueryString(_curr);
@@ -80,17 +84,15 @@ news.fetchFeed = function (yqUrl) {
 news.parseFeed = function (data) {
 
 	var _rssItems = [];
-
+	var _rssItems2 = [];
 	for (var i = 0, count = data.length; i < count; i++) {
 
 		_rssItems.push(data[i].title);
-
+		_rssItems2.push(data[i].description);
 	}
-
-	this.newsItems = this.newsItems.concat(_rssItems);
-
+	this.newsHeader = this.newsHeader.concat(_rssItems);
+	this.newsDesc = this.newsDesc.concat(_rssItems2);
 	return true;
-
 }
 
 /**
@@ -101,7 +103,7 @@ news.parseFeed = function (data) {
 news.showNews = function () {
 
 	// If all items have been seen, swap seen to unseen
-	if (this.newsItems.length === 0 && this.seenNewsItem.length !== 0) {
+	if (this.newsHeader.length === 0 && this.seenNewsHeader.length !== 0) {
 
 		if (this._failedAttempts === 20) {
 			console.error('Failed to show a news story 20 times, stopping any attempts');
@@ -114,17 +116,21 @@ news.showNews = function () {
 			this.showNews();
 		}.bind(this), 3000);
 
-	} else if (this.newsItems.length === 0 && this.seenNewsItem.length !== 0) {
-		this.newsItems = this.seenNewsItem.splice(0);
+	} else if (this.newsHeader.length === 0 && this.seenNewsHeader.length !== 0) {
+		this.newsHeader = this.seenNewsHeader.splice(0);
+		this.newsDesc = this.seenNewsDesc.splice(0);
 	}
 
-	var _location = Math.floor(Math.random() * this.newsItems.length);
+	var _location = Math.floor(Math.random() * this.newsHeader.length);
 
-	var _item = news.newsItems.splice(_location, 1)[0];
+	var _Header = news.newsHeader.splice(_location, 1)[0];
+	var _Desc = news.newsDesc.splice(_location, 1)[0];
 
-	this.seenNewsItem.push(_item);
+	this.seenNewsHeader.push(_Header);
+	this.seenNewsDesc.push(_Desc);
 
-	$(this.newsLocation).updateWithText(_item, this.fadeInterval);
+	$(this.newsHeadLocation).updateWithText(_Header, this.fadeInterval);
+	$(this.newsDescLocation).updateWithText(_Desc, this.fadeInterval);
 
 	return true;
 
