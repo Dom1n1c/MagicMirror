@@ -13,6 +13,8 @@ version.checkVersion = function () {
 		url: 'githash.php',
 		success: function (data) {
 			// The githash variable is located in index.php
+			if (data && data.gitHash == '') 
+				console.log('version.js checkVersion: No git hash provided.');
 			if (data && data.gitHash !== gitHash) {
 				window.location.reload();
 				window.location.href = window.location.href;

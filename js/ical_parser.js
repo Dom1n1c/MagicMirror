@@ -80,6 +80,8 @@ function ical_parser(feed_url, callback){
 		
 		//Keep track of when we are activly parsing an event
 		var in_event = false;
+		var in_alarm = false;
+		var is_summary_set = false;
 		//Use as a holder for the current event being proccessed.
 		var cur_event = null;
 		for(var i=0;i<cal_array.length;i++){
@@ -90,56 +92,63 @@ function ical_parser(feed_url, callback){
 				cur_event = {};
 			}
 			//If we encounter end event, complete the object and add it to our events array then clear it for reuse.
-                        if(in_event && ln == 'END:VEVENT'){
+            if(in_event && ln == 'END:VEVENT'){
+				is_summary_set = false;
 				in_event = false;
 				this.events.push(cur_event);
 				cur_event = null;
 			}
 			//If we are in an event
-                        else if(in_event){
-                                //var lntrim = ln.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-                                //var lnsplit = lntrim.split(':');
-                                //type = lnsplit[0];
-                                //val = lnsplit[1];
-
-				//Split the item based on the first ":"
-				idx = ln.indexOf(':');
-				//Apply trimming to values to reduce risks of badly formatted ical files.
-				type = ln.substr(0,idx).replace(/^\s\s*/, '').replace(/\s\s*$/, '');//Trim
-				val = ln.substr(idx+1).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+			else if(in_event){
 				
-				//If the type is a start date, proccess it and store details
-				if(type =='DTSTART'){
-					dt = this.makeDate(val);
-					val = dt.date;
-					//These are helpful for display
-					cur_event.start_time = dt.hour+':'+dt.minute;
-					cur_event.start_date = dt.day+'/'+dt.month+'/'+dt.year;
-					cur_event.day = dt.dayname;
-                                        cur_event.start_date_long = dt.day+'. '+dt.monthname+' '+dt.year ;
+				if (ln == 'BEGIN:VALARM') {
+					in_alarm = true;
+				} else if (ln == 'END:VALARM') {
+					in_alarm = false;
 				}
-				//If the type is an end date, do the same as above
-                                else if(type =='DTEND'){
-					dt = this.makeDate(val);
-					val = dt.date;
-					//These are helpful for display
-					cur_event.end_time = dt.hour+':'+dt.minute;
-					cur_event.end_date = dt.day+'/'+dt.month+'/'+dt.year;
-					cur_event.day = dt.dayname;
+				else
+				{
+					//Split the item based on the first ":"
+					idx = ln.indexOf(':');
+					//Apply trimming to values to reduce risks of badly formatted ical files.
+					type = ln.substr(0,idx).replace(/^\s\s*/, '').replace(/\s\s*$/, '');//Trim
+					if (in_alarm)
+						type = "valarm_"+type;
+					val = ln.substr(idx+1).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+					
+					//If the type is a start date, proccess it and store details
+					if(type =='DTSTART'){
+						dt = this.makeDate(val);
+						val = dt.date;
+						//These are helpful for display
+						cur_event.start_time = dt.hour+':'+dt.minute;
+						cur_event.start_date = dt.day+'/'+dt.month+'/'+dt.year;
+						cur_event.day = dt.dayname;
+											cur_event.start_date_long = dt.day+'. '+dt.monthname+' '+dt.year ;
+					}
+					//If the type is an end date, do the same as above
+					else if(type =='DTEND'){
+						dt = this.makeDate(val);
+						val = dt.date;
+						//These are helpful for display
+						cur_event.end_time = dt.hour+':'+dt.minute;
+						cur_event.end_date = dt.day+'/'+dt.month+'/'+dt.year;
+						cur_event.day = dt.dayname;
+					}
+					//Convert timestamp
+					else if(type =='DTSTAMP'){ 
+							val = this.makeDate(val).date;
+					}
+					else {
+						val = val
+							.replace(/\\r\\n/g,'<br />')
+							.replace(/\\n/g,'<br />')
+							.replace(/\\,/g,',');
+					}
+	
+					//Add the value to our event object.
+					cur_event[type] = val;
 				}
-				//Convert timestamp
-                                else if(type =='DTSTAMP'){ 
-                                        val = this.makeDate(val).date;
-                                }
-                                else {
-                                    val = val
-                                        .replace(/\\r\\n/g,'<br />')
-                                        .replace(/\\n/g,'<br />')
-                                        .replace(/\\,/g,',');
-                                }
-
-				//Add the value to our event object.
-				cur_event[type] = val;
 			}
 		}
 		//Run this to finish proccessing our Events.

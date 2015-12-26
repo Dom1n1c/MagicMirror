@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Magic Mirror</title>
+	<title>Smartmirror</title>
 	<style type="text/css">
 		<?php include('css/main.css') ?>
 	</style>
@@ -10,6 +10,7 @@
 	</script>
 	<meta name="google" value="notranslate" />
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 </head>
 <body>
 
@@ -24,8 +25,8 @@
 <script src="js/jquery.js"></script>
 <script src="js/jquery.feedToJSON.js"></script>
 <script src="js/ical_parser.js"></script>
-<script src="js/moment-with-locales.min.js"></script>
-<script src="js/config.js"></script>
+<script src="js/moment-with-locales.js"></script>
+<script src="js/config.js?nocache=<?php echo md5(microtime()) ?>"></script>
 <script src="js/rrule.js"></script>
 <script src="js/version/version.js" type="text/javascript"></script>
 <script src="js/calendar/calendar.js" type="text/javascript"></script>

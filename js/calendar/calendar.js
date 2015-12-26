@@ -1,22 +1,51 @@
+
 var calendar = {
 	eventList: [],
 	calendarLocation: '.calendar',
+	calendarMaxItems: config.calendar.maxItemsDisplayed,
+	calendars : config.calendar.calendars,
 	updateInterval: 1000,
 	updateDataInterval: 60000,
 	fadeInterval: 1000,
 	intervalId: null,
 	dataIntervalId: null,
-	maximumEntries: config.calendar.maximumEntries || 10
+	isDataUpdating: false,
 }
 
-calendar.updateData = function (callback) {
+calendar.createUpdateCall = function (cal, idx, callback) {
+	if (cal == null) {
+		callback(this.eventList);
+		this.isDataUpdating = false;
+	} else {
+		this.getCalendarData(cal.url, cal.color, function() {
+			var calLen = this.calendars.length;
+			var calIdx = idx+1;
+			
+			if (calIdx < calLen) {
+				this.createUpdateCall(this.calendars[calIdx], calIdx, callback);
+			} else {
+				this.createUpdateCall(null, calIdx, callback);				
+			}
+		}.bind(this));
+	}	
+}
 
-	new ical_parser("calendar.php", function(cal) {
+calendar.updateData = function (callback) {	
+	if (this.isDataUpdating === true) return;
+	this.isDataUpdating = true;	
+	this.eventList = [];
+	
+	if (this.calendars.length > 0) {
+		this.createUpdateCall(this.calendars[0], 0, callback);
+	}
+}
+
+calendar.getCalendarData = function(url, color, callback) {
+
+	new ical_parser("calendar.php?url=" + encodeURIComponent(url), function(cal) {
 		var events = cal.getEvents();
-		this.eventList = [];
 
 		for (var i in events) {
-
 			var e = events[i];
 			for (var key in e) {
 				var value = e[key];
@@ -59,7 +88,7 @@ calendar.updateData = function (callback) {
 					var time_string = moment(startDate).calendar()
 				}
 				if (!e.RRULE) {
-					this.eventList.push({'description':e.SUMMARY,'seconds':seconds,'days':time_string});
+					this.eventList.push({'description':e.SUMMARY,'seconds':seconds,'days':time_string,'color':color});
 				}
 				e.seconds = seconds;
 			}
@@ -83,19 +112,18 @@ calendar.updateData = function (callback) {
 						} else {
 							var time_string = moment(dt).calendar()
 						}
-						this.eventList.push({'description':e.SUMMARY,'seconds':seconds,'days':time_string});
+						this.eventList.push({'description':e.SUMMARY,'seconds':seconds,'days':time_string,'color':color});
 					}           
 				}
 			}
 		};
 
 		this.eventList = this.eventList.sort(function(a,b){return a.seconds-b.seconds});
-
-		// Limit the number of entries.
-		this.eventList = this.eventList.slice(0, calendar.maximumEntries);
+		//this.eventList = this.eventList.slice(0,8);
+		//slicen calendar.calendars[calIdx].slice
 
 		if (callback !== undefined && Object.prototype.toString.call(callback) === '[object Function]') {
-			callback(this.eventList);
+			callback();
 		}
 
 	}.bind(this));
@@ -104,22 +132,22 @@ calendar.updateData = function (callback) {
 
 calendar.updateCalendar = function (eventList) {
 
-	table = $('<table/>').addClass('xsmall').addClass('calendar-table');
-	opacity = 1;
-
-	for (var i in eventList) {
+	var table = $('<table/>').addClass('xsmall').addClass('calendar-table');
+	var opacity = 1;
+	var len = eventList.length > calendar.calendarMaxItems ? calendar.calendarMaxItems : eventList.length;
+	for (var i = 0; i < len; i++) {
 		var e = eventList[i];
 
-		var row = $('<tr/>').css('opacity',opacity);
+		var row = $('<tr/>').css('opacity', opacity);
+		row.css('color', e.color);
 		row.append($('<td/>').html(e.description).addClass('description'));
 		row.append($('<td/>').html(e.days).addClass('days dimmed'));
 		table.append(row);
 
-		opacity -= 1 / eventList.length;
+		opacity -= 1 / calendar.calendarMaxItems;
 	}
 
 	$(this.calendarLocation).updateWithText(table, this.fadeInterval);
-
 }
 
 calendar.init = function () {
